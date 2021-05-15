@@ -11,6 +11,8 @@
 - `http://localhost:8080/edit-article/{id}` -> form to edit an article
 
 - `http://localhost:8080/debtors` -> displays all debtors
+- `http://localhost:8080/debtors/add` -> form to add a debtor
+- `http://localhost:8080/edit-debtor/{id}` -> form to edit a debtor
 
 ### Supported operation
 
@@ -20,4 +22,4 @@ Create, Get all, Edit, Delete
 
 ##### Debtors
 
-Get all
+Create, Get all, Edit, Delete
