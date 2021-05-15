@@ -1,0 +1,29 @@
+<div th:switch="${articles}">
+    <h2 th:case="null">No articles yet!</h2>
+    <div th:case="*">
+        <h2>Articles</h2>
+        <table>
+            <thead>
+            <tr>
+                <th>Name</th>
+                <th>PackageQuantity</th>
+                <th>AvailableUnits</th>
+                <th>MRP</th>
+                <th>Cost</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="article : ${articles}">
+                <td th:text="${article.name}"></td>
+                <td th:text="${article.packageQuantity}"></td>
+                <td th:text="${article.availableUnits}"></td>
+                <td th:text="${article.mrp}"></td>
+                <td th:text="${article.cost}"></td>
+                <td><a th:href="@{/edit-article/{id}(id=${article.id})}">Edit</a></td>
+                <td><a th:href="@{/delete-article/{id}(id=${article.id})}">Delete</a></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <p><a href="/articles/add">Add a new article</a></p>
+</div>
