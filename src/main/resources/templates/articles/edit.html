@@ -1,0 +1,19 @@
+<form action="#" th:action="@{/articles/{id}(id=${article.id})}" th:object="${article}" method="post">
+    <label for="name">Name</label>
+    <input type="text" th:field="*{name}" id="name" placeholder="Name">
+    </br>
+    <label for="packageQuantity">Pkg qty</label>
+    <input type="text" th:field="*{packageQuantity}" id="packageQuantity" placeholder="PackageQuantity">
+    </br>
+    <label for="availableUnits">Units available</label>
+    <input type="text" th:field="*{availableUnits}" id="availableUnits" placeholder="AvailableUnits">
+    </br>
+    <label for="mrp">MRP</label>
+    <input type="text" th:field="*{mrp}" id="mrp" placeholder="MRP">
+    </br>
+    <label for="cost">Cost</label>
+    <input type="text" th:field="*{cost}" id="cost" placeholder="Cost">
+    </br>
+
+    <input type="submit" value="Update Article">
+</form>

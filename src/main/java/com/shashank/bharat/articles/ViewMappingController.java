@@ -27,4 +27,13 @@ public class ViewMappingController {
         model.addAttribute("articles", articlesRepository.findAll());
         return new ModelAndView("/articles/display-all");
     }
+
+    @RequestMapping("edit-article/{id}")
+    public ModelAndView editArticle(@PathVariable Long id, Model model) {
+        Article article = articlesRepository.findById(id).
+                orElseThrow(() -> new IllegalArgumentException("Invalid article Id:" + id));
+        model.addAttribute("article", article);
+
+        return new ModelAndView("/articles/edit");
+    }
 }
