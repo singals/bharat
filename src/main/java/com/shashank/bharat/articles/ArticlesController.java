@@ -17,7 +17,7 @@ public class ArticlesController {
     private ArticlesRepository articlesRepository;
 
     @GetMapping
-    public ModelAndView getAllArticles(Model model){
+    public ModelAndView getAllArticles(Model model) {
         model.addAttribute("articles", articlesRepository.findAll());
         return new ModelAndView("articles/display-all");
     }
