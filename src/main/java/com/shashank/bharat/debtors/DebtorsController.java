@@ -3,10 +3,7 @@ package com.shashank.bharat.debtors;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 @RestController
@@ -29,6 +26,21 @@ public class DebtorsController {
         }
         debtorsRepository.save(debtor);
 
+        model.addAttribute("debtors", debtorsRepository.findAll());
+        return new ModelAndView("/debtors/display-all");
+    }
+
+    @PostMapping("{id}")
+    public ModelAndView updateDebtor(Debtor debtor, BindingResult result, Model model, @PathVariable Long id) {
+        debtorsRepository.findById(id).
+                orElseThrow(() -> new IllegalArgumentException("Invalid debtor Id:" + id));
+
+        if (result.hasErrors()) {
+            model.addAttribute("debtors", debtorsRepository.findAll());
+            return new ModelAndView("/debtors/display-all");
+        }
+
+        debtorsRepository.save(debtor);
         model.addAttribute("debtors", debtorsRepository.findAll());
         return new ModelAndView("/debtors/display-all");
     }
