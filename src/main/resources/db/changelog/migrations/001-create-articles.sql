@@ -5,7 +5,6 @@ CREATE TABLE IF NOT EXISTS articles(
     available_units BIGINT,
     mrp NUMERIC(10, 2),
     cost NUMERIC(10, 2),
-    is_active BOOL,
     created_at TIMESTAMP WITH TIME ZONE,
     updated_at TIMESTAMP WITH TIME ZONE
 );

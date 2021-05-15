@@ -1,4 +1,4 @@
-package com.shashank.bharat.articles;
+package com.shashank.bharat.debtors;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -15,21 +15,17 @@ import java.util.Date;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@Entity(name = "articles")
-public class Article {
+@Entity(name = "debtors")
+public class Debtor {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private long id;
 
     private String name;
 
-    private String packageQuantity;
+    private String village;
 
-    private int availableUnits;
-
-    private float mrp;
-
-    private float cost;
+    private String contactNumber;
 
     private Date createdAt;
 

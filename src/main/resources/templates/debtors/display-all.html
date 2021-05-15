@@ -1,0 +1,25 @@
+<div th:switch="${debtors}">
+    <h2 th:case="null">No debtors yet!</h2>
+    <div th:case="*">
+        <h2>Debtors</h2>
+        <table>
+            <thead>
+            <tr>
+                <th>Name</th>
+                <th>Village</th>
+                <th>ContactNumber</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="debtor : ${debtors}">
+                <td th:text="${debtor.name}"></td>
+                <td th:text="${debtor.village}"></td>
+                <td th:text="${debtor.contactNumber}"></td>
+                <td><a th:href="@{/edit-debtor/{id}(id=${debtor.id})}">Edit</a></td>
+                <td><a th:href="@{/delete-debtor/{id}(id=${debtor.id})}">Delete</a></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <p><a href="/debtors/add">Add a new article</a></p>
+</div>
